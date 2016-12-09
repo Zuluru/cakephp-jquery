@@ -12,12 +12,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Zuluru\\Jquery\\": "src"
+            "ZuluruJquery\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zuluru\\Jquery\\Test\\": "tests",
+            "ZuluruJquery\\Test\\": "tests",
             "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
         }
     }

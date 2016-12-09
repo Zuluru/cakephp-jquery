@@ -2,8 +2,8 @@
 use Cake\Routing\Router;
 
 Router::plugin(
-    'Jquery',
-    ['path' => '/jquery'],
+    'ZuluruJquery',
+    ['path' => '/zulurujquery'],
     function ($routes) {
         $routes->fallbacks('DashedRoute');
     }

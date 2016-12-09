@@ -1,6 +1,6 @@
 <?php
 
-namespace Zuluru\Jquery\Controller;
+namespace ZuluruJquery\Controller;
 
 use App\Controller\AppController as BaseController;
 
