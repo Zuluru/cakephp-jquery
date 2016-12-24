@@ -1,6 +1,6 @@
 {
     "name": "zuluru/cakephp-jquery",
-	"version": "0.0.1",
+	"version": "0.0.2",
     "description": "Zuluru jQuery plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
