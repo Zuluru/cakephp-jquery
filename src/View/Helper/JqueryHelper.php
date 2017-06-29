@@ -357,15 +357,46 @@ class JqueryHelper extends Helper {
 	 *
 	 * The zuluru_toggle_input class is added to the link, along with the selectors.
 	 * zuluru.js attaches an "on click" event handler to these objects, which deals
-	 * with the various complexities of showing and hiding things. If "hide" and "show"
-	 * selectors are given, hiding is done first followed by showing, so you can use a
-	 * general hide selector to hide everything and then show specific bits. If "hide"
-	 * and "show" selectors are not given, it's assumed that the selector given should
-	 * be hidden when the value is not selected and shown when it is.
+	 * with the various complexities of showing and hiding things.
 	 *
-	 * If a parent_selector is given, it finds the closest such selector to the main
-	 * selector, thus allowing you to show/hide the div, span, etc. that encloses the
-	 * given selector.
+	 * Hiding is always done first followed by showing, so you can use a general hide
+	 * selector to hide everything and then show specific bits.
+	 *
+	 * $selector_options['selector'] is most often used with checkbox inputs, though it
+	 * can also apply to any input that take on truthy vs non-truthy values (e.g. a text
+	 * input where blank or zero differentiates from a non-blank or non-zero entry, or a
+	 * select where one value equates to false, most often through use of an input option
+	 * like 'empty' => true). It can be an array with "hide" and "show" keys, where hide
+	 * specifies a selector to hide when the input is non-truthy and show specifies a
+	 * selector to show when it is truthy. It can alternately be a string, specifying a
+	 * selector that should be hidden when the value is non-truthy and shown when it is
+	 * truthy.
+	 *
+	 * $selector_options['values'] is typically used with select inputs, and is an array
+	 * of key / value pairs where the key is the input value to match and the value is
+	 * the selector to show when that value is selected by the user. Note that the key
+	 * must match the value attribute of the option tag, not the content of the option
+	 * (that is, if the HTML has <option value="ON">Ontario</option>, you need something
+	 * like 'values' => ['ON' => '.selector']).
+	 *
+	 * $selector_options['parent_selector'] may be set, in which case it finds the closest
+	 * such selector to the main selector, thus allowing you to show/hide the div, span,
+	 * etc. that encloses the given selector. It is often useful to pass '.form-group'
+	 * here, so that it hides the label as well as the input.
+	 *
+	 * $selector_options['parent_selector_optional'] may be set if parent_selector is, in
+	 * which case additional checks are done to ensure that elements matched by the main
+	 * selector (whether from a selector or a values key) are shown or hidden regardless
+	 * of whether they are contained within an element that matches the specified parent
+	 * selector.
+	 *
+	 * @param string $input The name of the input field.
+	 * @param array $input_options Any options for the input itself, passed to the
+	 *      form helper. Useful options might include 'label', 'options', 'empty',
+	 *      'help', etc.
+	 * @param array $selector_options Options which dictate what elements will be shown
+	 * 	    and hidden based on the input.
+	 * @return string
 	 */
 	public function toggleInput($input, $input_options = [], $selector_options = []) {
 		$input_options = $this->addClass($input_options, 'zuluru_toggle_input');
