@@ -466,8 +466,16 @@ class JqueryHelper extends Helper {
 				$new_options["data-values"] = implode(' ', $safe_values);
 
 				if (array_key_exists('type', $input_options) && $input_options['type'] == 'radio') {
-					// TODO: Does this need to be more general?
-					$input_options['options'][0] += $new_options;
+					foreach ($input_options['options'] as $key => $value_options) {
+						if (is_array($value_options)) {
+							$input_options['options'][$key] += $new_options;
+						} else {
+							$input_options['options'][$key] = array_merge($new_options, [
+								'value' => $key,
+								'text' => $value_options,
+							]);
+						}
+					}
 					$new_options = [];
 				}
 			}
