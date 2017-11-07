@@ -390,6 +390,9 @@ class JqueryHelper extends Helper {
 	 * of whether they are contained within an element that matches the specified parent
 	 * selector.
 	 *
+	 * $selector_options['container_selector'] may be set if you only want to show/hide
+	 * things that are within the element(s) specified.
+	 *
 	 * @param string $input The name of the input field.
 	 * @param array $input_options Any options for the input itself, passed to the
 	 *      form helper. Useful options might include 'label', 'options', 'empty',
@@ -407,6 +410,9 @@ class JqueryHelper extends Helper {
 		}
 		if (array_key_exists('parent_selector_optional', $selector_options)) {
 			$new_options['data-parent-selector-optional'] = $selector_options['parent_selector_optional'];
+		}
+		if (array_key_exists('container_selector', $selector_options)) {
+			$new_options['data-container-selector'] = $selector_options['container_selector'];
 		}
 
 		if (array_key_exists('values', $selector_options)) {
