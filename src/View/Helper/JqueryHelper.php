@@ -58,9 +58,6 @@ class JqueryHelper extends Helper {
 		$internalType = $context->type($input);
 
 		$local_options = [];
-		// TODOSECOND: This doesn't add classes to date inputs
-		$input_options = $this->addClass($input_options, 'zuluru_ajax_input');
-
 		foreach ($data as $key => $val) {
 			if ($key == 'url' && is_array($val)) {
 				$val = Router::url($val);
@@ -70,13 +67,14 @@ class JqueryHelper extends Helper {
 
 		if ($internalType == 'date') {
 			$local_options['data-type'] = 'date';
+			$local_options['class'] = 'zuluru_ajax_input';
 			$input_options = array_merge($input_options, [
 				'year' => $local_options,
 				'month' => $local_options,
 				'day' => $local_options,
 			]);
 		} else {
-			$input_options = array_merge($input_options, $local_options);
+			$input_options = array_merge($this->addClass($input_options, 'zuluru_ajax_input'), $local_options);
 		}
 
 		return $this->Form->input($input, $input_options);
