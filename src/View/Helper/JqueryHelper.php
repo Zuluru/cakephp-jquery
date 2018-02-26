@@ -198,7 +198,8 @@ class JqueryHelper extends Helper {
 		}
 
 		return $this->Html->tag('span',
-			$this->Html->link($text, $url, ['escape' => false]),
+			// TODOBOOTSTRAP: 'class' => 'icon' here is really a bit of a hack. Perhaps elsewhere too.
+			$this->Html->link($text, $url, ['escape' => false, 'class' => 'icon']),
 			$widget_options
 		);
 	}
