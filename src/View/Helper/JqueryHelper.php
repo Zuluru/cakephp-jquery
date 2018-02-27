@@ -149,7 +149,7 @@ class JqueryHelper extends Helper {
 	 * Generate a widget that contains a number of options, each of which will be
 	 * an Ajax link.
 	 *
-	 * The zuluru_in_place_widget class is added to the widget, along with the URL.
+	 * The zuluru-in-place-widget class is added to the widget, along with the URL.
 	 * zuluru.js attaches an "on click" event handler to these objects, which deals
 	 * with the various complexities of issuing and handling the Ajax request.
 	 *
@@ -177,7 +177,7 @@ class JqueryHelper extends Helper {
 	 * @return string
 	 */
 	public function inPlaceWidget($text, array $data = [], array $widget_options = [], $dropdown_icon = true, array $ajax_data = null) {
-		$widget_options = $this->addClass($widget_options, 'zuluru_in_place_widget');
+		$widget_options = $this->addClass($widget_options, 'zuluru-in-place-widget');
 
 		$url = $data['url'];
 		foreach ($data as $key => $val) {
@@ -208,7 +208,7 @@ class JqueryHelper extends Helper {
 	 * Generate a collection of options for an in_place_widget, each of which will be
 	 * an Ajax link.
 	 *
-	 * The zuluru_in_place_widget_XXX_options class is added to the widget.
+	 * The zuluru-in-place-widget-XXX-options class is added to the widget.
 	 * zuluru.js attaches an "on click" event handler to these objects, which deals
 	 * with the various complexities of issuing and handling the Ajax request.
 	 *
@@ -247,7 +247,7 @@ class JqueryHelper extends Helper {
 			if (isset($data['ajax']) && $data['ajax']) {
 				$div_options = [
 					'id' => "zuluru_in_place_widget_{$data['type']}_option_{$key}",
-					'class' => 'zuluru_in_place_widget_option',
+					'class' => 'zuluru-in-place-widget-option',
 					'data-value' => $key,
 				];
 
@@ -269,7 +269,7 @@ class JqueryHelper extends Helper {
 
 		return $this->Html->tag('div', $div_content, [
 			'id' => "zuluru_in_place_widget_{$data['type']}_options",
-			'class' => 'zuluru_in_place_widget_options',
+			'class' => 'zuluru-in-place-widget-options',
 			'data-param' => $data['url-param'],
 			'data-confirm' => $confirm,
 			'style' => 'display: none;',
@@ -298,7 +298,7 @@ class JqueryHelper extends Helper {
 		}
 
 		// First, we create the link
-		$widget_options = $this->addClass($widget_options, 'zuluru_in_place_widget');
+		$widget_options = $this->addClass($widget_options, 'zuluru-in-place-widget');
 		$widget_options['data-type'] = $data['type'];
 		if (!$text) {
 			$text = __('More');
@@ -332,7 +332,7 @@ class JqueryHelper extends Helper {
 			$widget_options
 		) . $this->Html->tag('div', $div_content, [
 			'id' => "zuluru_in_place_widget_{$data['type']}_options",
-			'class' => 'zuluru_in_place_widget_options',
+			'class' => 'zuluru-in-place-widget-options',
 			'style' => 'display: none;',
 		]);
 	}
