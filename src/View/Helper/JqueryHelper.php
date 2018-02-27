@@ -314,10 +314,14 @@ class JqueryHelper extends Helper {
 				$item = $this->ajaxLink($name, $widget['ajax_data'], ['escape' => false]);
 			} else {
 				// TODO: Make the non-Ajax version work; will need JS changes?
+				$params = [];
 				if (array_key_exists('confirm', $widget)) {
-					$item = $this->Html->link($name, $widget['url'], ['confirm' => $widget['confirm']]);
+					$params['confirm'] = $widget['confirm'];
+				}
+				if (array_key_exists('method', $widget) && $widget['method'] == 'post') {
+					$item = $this->Form->postLink($name, $widget['url'], $params);
 				} else {
-					$item = $this->Html->link($name, $widget['url']);
+					$item = $this->Html->link($name, $widget['url'], $params);
 				}
 			}
 			$div_content .= $this->Html->tag('div', $item);
