@@ -77,7 +77,7 @@ class JqueryHelper extends Helper {
 			$input_options = array_merge($this->addClass($input_options, 'zuluru_ajax_input'), $local_options);
 		}
 
-		return $this->Form->input($input, $input_options);
+		return $this->Form->control($input, $input_options);
 	}
 
 	/**
@@ -142,7 +142,7 @@ class JqueryHelper extends Helper {
 			$input_options['data-add-selector'] = $data['add_selector'];
 		}
 
-		return $this->Form->input($input, $input_options);
+		return $this->Form->control($input, $input_options);
 	}
 
 	/*
@@ -504,7 +504,7 @@ class JqueryHelper extends Helper {
 			trigger_error('No selector specified!', E_USER_ERROR);
 		}
 
-		return $this->Form->input($input, array_merge($input_options, $new_options));
+		return $this->Form->control($input, array_merge($input_options, $new_options));
 	}
 
 	/**
