@@ -4,8 +4,8 @@
     "description": "Zuluru jQuery plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
-        "php": ">=5.4.16",
-        "cakephp/cakephp": "~3.0"
+        "php": ">=7.4",
+        "cakephp/cakephp": "^4.1"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
